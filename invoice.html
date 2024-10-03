@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Barakah Artistry</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .invoice-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .invoice-header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .invoice-header h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        .invoice-header p {
+            font-size: 1.2em;
+            color: #777;
+            margin: 0;
+        }
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+        .invoice-details p {
+            font-size: 1.1em;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .invoice-details span {
+            font-weight: bold;
+            color: #555;
+        }
+        .invoice-footer {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .invoice-footer p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        /* Buttons */
+        .invoice-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .invoice-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+    <div class="invoice-header">
+        <h1>Invoice</h1>
+        <p><strong>Barakah Artistry</strong></p>
+    </div>
+
+    <div class="invoice-details">
+        <p><span>Order Date:</span> <span id="orderDate"></span></p>
+        <p><span>Name:</span> <span id="name"></span></p>
+        <p><span>Address:</span> <span id="address"></span></p>
+        <p><span>Thana:</span> <span id="thana"></span></p>
+        <p><span>Phone:</span> <span id="phone"></span></p>
+        <p><span>Product Code:</span> <span id="productCode"></span></p>
+        <p><span>Quantity:</span> <span id="quantity"></span></p>
+        <p><span>Delivery Method:</span> <span id="deliveryMethod"></span></p>
+        <p><span>Total Amount:</span> <span id="totalAmount"></span></p>
+    </div>
+
+    <div class="invoice-footer">
+        <p>Thank you for shopping with Barakah Artistry!</p>
+        <button class="invoice-button" onclick="window.print()">Print Invoice</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // Retrieve order details from sessionStorage
+    const invoiceData = JSON.parse(sessionStorage.getItem('invoiceData'));
+
+    if (invoiceData) {
+        document.getElementById('orderDate').innerText = invoiceData.order_date;
+        document.getElementById('name').innerText = invoiceData.name;
+        document.getElementById('address').innerText = invoiceData.address;
+        document.getElementById('thana').innerText = invoiceData.thana;
+        document.getElementById('phone').innerText = invoiceData.phone;
+        document.getElementById('productCode').innerText = invoiceData.product_code;
+        document.getElementById('quantity').innerText = invoiceData.quantity;
+        document.getElementById('deliveryMethod').innerText = invoiceData.delivery_method === 'inDhaka' ? 'In Dhaka' : 'Out of Dhaka';
+        document.getElementById('totalAmount').innerText = invoiceData.total_amount;
+    } else {
+        document.body.innerHTML = "<h1>Invalid Invoice</h1>";
+    }
+</script>
+
+</body>
+</html>
