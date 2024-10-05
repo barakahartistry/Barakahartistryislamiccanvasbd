@@ -722,7 +722,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
 
 
-            
             <style>
                 .product-list {
                     max-width: 600px;
@@ -731,7 +730,12 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     border: 1px solid #ddd;
                     border-radius: 8px;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: box-shadow 0.3s ease;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+        
+                .product-list:hover {
+                    transform: scale(1.07); /* Slightly increased hover scale */
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
                 }
         
                 .product-header, .product-row {
@@ -761,6 +765,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         
                 .quantity-controls {
                     display: flex;
+                    flex-direction: column; /* Stack buttons and input vertically */
                     align-items: center;
                 }
         
@@ -771,6 +776,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     cursor: pointer;
                     font-size: 16px;
                     transition: background-color 0.2s ease;
+                    margin-bottom: 5px; /* Space between button and input */
                 }
         
                 .quantity-controls button:hover {
@@ -780,7 +786,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                 .quantity-controls input {
                     width: 50px;
                     text-align: center;
-                    margin: 0 5px;
                     font-size: 16px;
                 }
         
@@ -816,7 +821,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                 <button type="button" onclick="increment()">+</button>
             </div>
 
-            <div class="price">৳ 790.00</div>
+            <div class="price">790.00 ৳</div>
         </div>
     </div>
 
@@ -835,10 +840,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
     </script>
 
 </body>
-
-
-
-
 
 
 
