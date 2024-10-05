@@ -1003,12 +1003,11 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                 </div>
 
                 <div class="quantity-controls">
-                    <div>
-                        <button type="button" onclick="increment()" style="margin-bottom: 5px;">+</button>
-                        <input type="number" value="1" min="1" id="quantity" readonly style="text-align: center; width: 50px;">
-                        <button type="button" onclick="decrement()" style="margin-top: 5px;">-</button>
+                    <div class="wcf-qty-selection-wrap">
+                        <span class="wcf-qty-selection-btn wcf-qty-decrement wcf-qty-change-icon" title="" onclick="decrement()">−</span>
+                        <input autocomplete="off" type="number" value="1" step="1" min="1" name="wcf_qty_selection" class="wcf-qty-selection" id="quantity" placeholder="1" data-sale-limit="false" title="">
+                        <span class="wcf-qty-selection-btn wcf-qty-increment wcf-qty-change-icon" title="" onclick="increment()">+</span>
                     </div>
-                </div>
 
                 <div class="price" id="productPrice">790 ৳</div>
             </div>
