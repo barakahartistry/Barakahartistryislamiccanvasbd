@@ -649,15 +649,82 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
 
 
+<style>
+    .product-list {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
 
+    .product-header, .product-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
 
+    .product-header {
+        font-weight: bold;
+        background-color: #f7f7f7;
+    }
 
+    .product-name {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-name img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 4px;
+    }
+
+    .quantity-controls {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-controls button {
+        background-color: #ddd;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s ease;
+    }
+
+    .quantity-controls button:hover {
+        background-color: #ccc;
+    }
+
+    .quantity-controls input {
+        width: 50px;
+        text-align: center;
+        margin: 0 5px;
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+<body>
     <div class="checkout-form">
         <img src="Barakah_header_logo.png" alt="Product Image" style="display: block; margin: 0 auto; max-width: 25%; height: auto;">
 
         <h2 style="text-align: center;">ডেলিভারি এড্রেস</h2>
 
         <form id="orderForm">
+            <!-- Address Section -->
             <div class="form-row">
                 <div class="form-group">
                     <label for="name">Name*</label>
@@ -667,221 +734,48 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     <label for="phone">Phone*</label>
                     <input type="tel" id="phone" name="phone" placeholder="Enter your number" required pattern="[0-9]{11}" title="Phone number must be 11 digits">
                 </div>
- 
             </div>
-
-
-
-
-
-
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="address">Address*</label>
                     <input type="text" id="address" name="address" placeholder="Enter your full address" required>
                 </div>
-               
             </div>
 
+            <!-- Product Section -->
+            <h3>Your Products</h3>
 
-
-
-
- 
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="productCode">Your Product*</label>
-                    <select id="productCode" name="productCode" required>
-                       
-                        <option value="704">মক্কা, মাদিনা ও আকসা - 790 ৳</option>
-                         
-                    </select>
+            <div class="product-list">
+                <div class="product-header">
+                    <div>Product</div>
+                    <div>Quantity</div>
+                    <div>Price</div>
                 </div>
-                <div class="form-group">
-                    <label for="quantity">Quantity of Set*</label>
-                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+
+                <div class="product-row">
+                    <div class="product-name">
+                        <img src="Product_Code_704.png" alt="Product Thumbnail">
+                        <span><b>কাবা, মাদিনা ও আকসা কম্বো</b></span>
+                    </div>
+
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decrement()">-</button>
+                        <input type="number" value="1" min="1" id="quantity" readonly>
+                        <button type="button" onclick="increment()">+</button>
+                    </div>
+
+                    <div class="price">790.00 ৳</div>
                 </div>
             </div>
-    
 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-            <style>
-                .product-list {
-                    max-width: 600px;
-                    margin: 20px auto;
-                    padding: 20px;
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-        
-                .product-list:hover {
-                    transform: scale(1.07); /* Slightly increased hover scale */
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-                }
-        
-                .product-header, .product-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 10px 0;
-                    border-bottom: 1px solid #ddd;
-                }
-        
-                .product-header {
-                    font-weight: bold;
-                    background-color: #f7f7f7;
-                }
-        
-                .product-name {
-                    display: flex;
-                    align-items: center;
-                }
-        
-                .product-name img {
-                    width: 50px;
-                    height: 50px;
-                    margin-right: 10px;
-                    border-radius: 4px;
-                }
-        
-                .quantity-controls {
-                    display: flex;
-                    flex-direction: column; /* Stack buttons and input vertically */
-                    align-items: center;
-                }
-        
-                .quantity-controls button {
-                    background-color: #ddd;
-                    border: none;
-                    padding: 5px 10px;
-                    cursor: pointer;
-                    font-size: 16px;
-                    transition: background-color 0.2s ease;
-                    margin-bottom: 5px; /* Space between button and input */
-                }
-        
-                .quantity-controls button:hover {
-                    background-color: #ccc;
-                }
-        
-                .quantity-controls input {
-                    width: 50px;
-                    text-align: center;
-                    font-size: 16px;
-                }
-        
-                .price {
-                    font-size: 16px;
-                    font-weight: bold;
-                    color: #333;
-                }
-            </style>
-
-
-<body>
-
-    <h3>Your Products</h3>
-
-    <div class="product-list">
-        <div class="product-header">
-            <div>Product</div>
-            <div>Quantity</div>
-            <div>Price</div>
-        </div>
-
-        <div class="product-row">
-            <div class="product-name">
-                <!-- Product Thumbnail Image -->
-                <img src="Product_Code_704.png" alt="Product Thumbnail">
-                <span><b>কাবা, মাদিনা ও আকসা কম্বো</b></span>
-            </div>
-
-            <div class="quantity-controls">
-                <button type="button" onclick="decrement()">-</button>
-                <input type="number" value="1" min="1" id="quantity" readonly>
-                <button type="button" onclick="increment()">+</button>
-            </div>
-
-            <div class="price">790.00 ৳</div>
-        </div>
-    </div>
-
-    <script>
-        function increment() {
-            var quantity = document.getElementById('quantity');
-            quantity.value = parseInt(quantity.value) + 1;
-        }
-
-        function decrement() {
-            var quantity = document.getElementById('quantity');
-            if (parseInt(quantity.value) > 1) {
-                quantity.value = parseInt(quantity.value) - 1;
-            }
-        }
-    </script>
-
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <!-- Delivery Method -->
             <div class="delivery-methods">
                 <div class="form-group">
                     <label><b>Delivery Method</b></label>
                     <label for="inDhaka">
                         <input type="radio" id="inDhaka" name="deliveryMethod" value="inDhaka" checked>
-                        ঢাকার ভিতরে  (চার্জ : 60 ৳)
+                        ঢাকার ভিতরে (চার্জ : 60 ৳)
                     </label>
                     <label for="outDhaka">
                         <input type="radio" id="outDhaka" name="deliveryMethod" value="outDhaka">
@@ -889,16 +783,8 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     </label>
                 </div>
             </div>
- 
-
 
             <h4 style="text-align: center;">অনুগ্রহপূর্বক সঠিক তথ্য দিয়ে অর্ডার কনফার্ম করুন</h4>
-
-            <div class="terms">
-            <p style="text-align: center; font-size: 10px; line-height: 1.5;">
-    Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
-</p>
-</div>
 
             <button type="submit">অর্ডার কনফার্ম করুন <span class="total-amount" id="totalAmount">- Total: 850 ৳</span></button>
         </form>
@@ -908,12 +794,26 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         </div>
     </div>
 
-    <!-- Include EmailJS SDK -->
+    <!-- JavaScript Section -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init("EI64LNuOhELsTFjbW"); // Your EmailJS public key
         })();
+
+        function increment() {
+            var quantity = document.getElementById('quantity');
+            quantity.value = parseInt(quantity.value) + 1;
+            calculateTotal();
+        }
+
+        function decrement() {
+            var quantity = document.getElementById('quantity');
+            if (parseInt(quantity.value) > 1) {
+                quantity.value = parseInt(quantity.value) - 1;
+                calculateTotal();
+            }
+        }
 
         function calculateTotal() {
             const quantity = parseInt(document.getElementById('quantity').value) || 1;
@@ -924,7 +824,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
             document.getElementById('totalAmount').innerText = `Total: ${totalAmount} ৳`;
         }
 
-        document.getElementById('quantity').addEventListener('input', calculateTotal);
         document.querySelectorAll('input[name="deliveryMethod"]').forEach(input => {
             input.addEventListener('change', calculateTotal);
         });
@@ -935,33 +834,25 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
             const templateParams = {
                 name: document.getElementById('name').value,
                 address: document.getElementById('address').value,
-                thana: document.getElementById('thana').value,
                 phone: document.getElementById('phone').value,
-                product_code: document.getElementById('productCode').value,
+                product_code: "704",
                 quantity: document.getElementById('quantity').value,
                 delivery_method: document.querySelector('input[name="deliveryMethod"]:checked').value,
                 total_amount: document.getElementById('totalAmount').innerText,
-                order_date: new Date().toLocaleString(), // Order date and time
-                to_email: "creativewebexperts02@gmail.com" // Your email address
+                order_date: new Date().toLocaleString(),
+                to_email: "creativewebexperts02@gmail.com"
             };
 
-
-            // Send email with EmailJS
             emailjs.send('service_9zc5hzt', 'template_rwv3v8n', templateParams)
                 .then(function(response) {
                     console.log('Email sent successfully!', response.status, response.text);
-
-                    // Store the order details in session storage to pass to the invoice page
                     sessionStorage.setItem('invoiceData', JSON.stringify(templateParams));
-
-                    // Redirect to the invoice page
                     window.location.href = 'invoice.html';
                 }, function(error) {
                     console.error('Failed to send email:', error);
                 });
         });
     </script>
-
 </body>
 
 
