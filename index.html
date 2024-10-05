@@ -647,6 +647,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
     <form></form>
 </div>
 
+
 <style>
     .product-list {
         max-width: 1000px;
@@ -691,12 +692,10 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
     .quantity-controls button {
         background-color: #ddd;
         border: none;
-        padding: 10px 15px; /* Increased padding for consistent size */
+        padding: 5px 10px;
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.2s ease;
-        height: 40px; /* Set height for consistency */
-        width: 40px; /* Set width for consistency */
     }
 
     .quantity-controls button:hover {
@@ -708,7 +707,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         text-align: center;
         margin: 0 5px;
         font-size: 16px;
-        height: 40px; /* Set height for input to match buttons */
     }
 
     .price {
@@ -716,8 +714,14 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         font-weight: bold;
         color: #333;
     }
-</style>
 
+    .success-message {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+        color: green;
+    }
+</style>
 <body>
     <div class="checkout-form">
         <img src="Barakah_header_logo.png" alt="Product Image" style="display: block; margin: 0 auto; max-width: 25%; height: auto;">
@@ -764,7 +768,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                         <button type="button" onclick="increment()">+</button>
                     </div>
 
-                    <div class="price">790.00 ৳</div>
+                    <div class="price" id="productPrice">790.00 ৳</div> <!-- Changed ID for easy reference -->
                 </div>
             </div>
 
@@ -817,10 +821,18 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         function calculateTotal() {
             const quantity = parseInt(document.getElementById('quantity').value) || 1;
             const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
-            const productPrice = 790;
+            const productPrice = 790; // Price per unit
             let deliveryCharge = deliveryMethod === 'inDhaka' ? 60 : 80;
+
+            // Update the total amount for the order
             const totalAmount = (productPrice + deliveryCharge) * quantity;
+
+            // Update the total displayed on the button
             document.getElementById('totalAmount').innerText = `Total: ${totalAmount} ৳`;
+
+            // Update the product price based on quantity
+            const updatedProductPrice = (productPrice * quantity).toFixed(2);
+            document.getElementById('productPrice').innerText = `${updatedProductPrice} ৳`;
         }
 
         document.querySelectorAll('input[name="deliveryMethod"]').forEach(input => {
@@ -851,6 +863,9 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     console.error('Failed to send email:', error);
                 });
         });
+
+        // Initialize total calculation on page load
+        calculateTotal();
     </script>
 </body>
 
