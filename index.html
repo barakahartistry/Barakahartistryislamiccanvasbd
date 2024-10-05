@@ -724,48 +724,113 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
             
 
+            <style>
+                .product-list {
+                    max-width: 600px;
+                    margin: 20px auto;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+        
+                .product-list:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                }
+        
+                .product-header, .product-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #ddd;
+                }
+        
+                .product-header {
+                    font-weight: bold;
+                    background-color: #f7f7f7;
+                }
+        
+                .product-name {
+                    display: flex;
+                    align-items: center;
+                }
+        
+                .quantity-controls {
+                    display: flex;
+                    align-items: center;
+                }
+        
+                .quantity-controls button {
+                    background-color: #ddd;
+                    border: none;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    transition: background-color 0.2s ease;
+                }
+        
+                .quantity-controls button:hover {
+                    background-color: #ccc;
+                }
+        
+                .quantity-controls input {
+                    width: 50px;
+                    text-align: center;
+                    margin: 0 5px;
+                    font-size: 16px;
+                }
+        
+                .price {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #333;
+                }
+            </style>
+<body>
 
-            <h3>Your Products</h3>
+    <h3>Your Products</h3>
 
-            <div class="product-list">
-                <div class="product-header">
-                    <div>Product</div>
-                    <div>Quantity</div>
-                    <div>Price</div>
-                </div>
-        
-                <div class="product-row">
-                    <div class="product-name">
-                        <input type="checkbox" checked>
-                        <span>কাবা, মসজিদে নববী এবং মসজিদে আকসা কম্বো</span>
-                    </div>
-        
-                    <div class="quantity-controls">
-                        <button type="button" onclick="decrement()">-</button>
-                        <input type="number" value="1" min="1" id="quantity" readonly>
-                        <button type="button" onclick="increment()">+</button>
-                    </div>
-        
-                    <div class="price">৳ 790.00</div>
-                </div>
+    <div class="product-list">
+        <div class="product-header">
+            <div>Product</div>
+            <div>Quantity</div>
+            <div>Price</div>
+        </div>
+
+        <div class="product-row">
+            <div class="product-name">
+                <input type="checkbox" checked>
+                <span>কাবা, মসজিদে নববী এবং মসজিদে আকসা কম্বো</span>
             </div>
-        
-            <script>
-                function increment() {
-                    var quantity = document.getElementById('quantity');
-                    quantity.value = parseInt(quantity.value) + 1;
-                }
-        
-                function decrement() {
-                    var quantity = document.getElementById('quantity');
-                    if (parseInt(quantity.value) > 1) {
-                        quantity.value = parseInt(quantity.value) - 1;
-                    }
-                }
-            </script>
-        
-        </body>
 
+            <div class="quantity-controls">
+                <button type="button" onclick="decrement()">-</button>
+                <input type="number" value="1" min="1" id="quantity" readonly>
+                <button type="button" onclick="increment()">+</button>
+            </div>
+
+            <div class="price">৳ 790.00</div>
+        </div>
+    </div>
+
+    <script>
+        function increment() {
+            var quantity = document.getElementById('quantity');
+            quantity.value = parseInt(quantity.value) + 1;
+        }
+
+        function decrement() {
+            var quantity = document.getElementById('quantity');
+            if (parseInt(quantity.value) > 1) {
+                quantity.value = parseInt(quantity.value) - 1;
+            }
+        }
+    </script>
+
+</body>
 
 
 
