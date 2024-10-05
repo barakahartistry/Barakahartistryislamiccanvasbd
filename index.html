@@ -649,6 +649,33 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
     .product-list {
         max-width: 600px;
@@ -687,16 +714,18 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
     .quantity-controls {
         display: flex;
+        flex-direction: column;
         align-items: center;
     }
 
     .quantity-controls button {
         background-color: #ddd;
         border: none;
-        padding: 5px 10px;
+        padding: 5px;
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.2s ease;
+        width: 40px; /* Button width */
     }
 
     .quantity-controls button:hover {
@@ -704,10 +733,11 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
     }
 
     .quantity-controls input {
-        width: 50px;
+        width: 60px; /* Increased width */
         text-align: center;
-        margin: 0 5px;
+        margin: 5px 0;
         font-size: 16px;
+        padding: 5px;
     }
 
     .price {
@@ -715,6 +745,19 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         font-weight: bold;
         color: #333;
     }
+
+    /* Adjust total amount box */
+    #totalAmount {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
 </style>
 
 <body>
@@ -756,13 +799,13 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                 <div class="product-row">
                     <div class="product-name">
                         <img src="Product_Code_704.png" alt="Product Thumbnail">
-                        <span><b>কাবা, মাদিনা ও আকসা কম্বো</b></span>
+                        <span><b>Three Mosque - Combo</b></span>
                     </div>
 
                     <div class="quantity-controls">
-                        <button type="button" onclick="decrement()">-</button>
-                        <input type="number" value="1" min="1" id="quantity" readonly>
                         <button type="button" onclick="increment()">+</button>
+                        <input type="number" value="1" min="1" id="quantity" readonly>
+                        <button type="button" onclick="decrement()">-</button>
                     </div>
 
                     <div class="price">790.00 ৳</div>
@@ -854,6 +897,72 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
         });
     </script>
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
