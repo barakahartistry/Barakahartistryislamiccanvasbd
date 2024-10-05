@@ -722,55 +722,9 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
 
 
+            
 
 
-
-
-
-
-
-
-
-  <h3>Your Products</h3>
-
-    <div class="product-list">
-        <div class="product-header">
-            <div>Product</div>
-            <div>Quantity</div>
-            <div>Price</div>
-        </div>
-
-        <div class="product-row">
-            <div class="product-name">
-                <input type="checkbox" checked>
-                <span>Three Mosque - Combo</span>
-            </div>
-
-            <div class="quantity-controls">
-                <button type="button" onclick="decrement()">-</button>
-                <input type="number" value="1" min="1" id="quantity" readonly>
-                <button type="button" onclick="increment()">+</button>
-            </div>
-
-            <div class="price">৳ 990.00</div>
-        </div>
-    </div>
-
-    <script>
-        function increment() {
-            var quantity = document.getElementById('quantity');
-            quantity.value = parseInt(quantity.value) + 1;
-        }
-
-        function decrement() {
-            var quantity = document.getElementById('quantity');
-            if (parseInt(quantity.value) > 1) {
-                quantity.value = parseInt(quantity.value) - 1;
-            }
-        }
-    </script>
-
-</body>
             <h3>Your Products</h3>
 
             <div class="product-list">
