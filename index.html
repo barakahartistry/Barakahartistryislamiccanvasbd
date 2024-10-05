@@ -723,7 +723,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
 
             
-
             <style>
                 .product-list {
                     max-width: 600px;
@@ -732,12 +731,7 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     border: 1px solid #ddd;
                     border-radius: 8px;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-        
-                .product-list:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                    transition: box-shadow 0.3s ease;
                 }
         
                 .product-header, .product-row {
@@ -756,6 +750,13 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                 .product-name {
                     display: flex;
                     align-items: center;
+                }
+        
+                .product-name img {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    border-radius: 4px;
                 }
         
                 .quantity-controls {
@@ -789,6 +790,8 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
                     color: #333;
                 }
             </style>
+
+
 <body>
 
     <h3>Your Products</h3>
@@ -802,8 +805,9 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
 
         <div class="product-row">
             <div class="product-name">
-                <input type="checkbox" checked>
-                <span>কাবা, মসজিদে নববী এবং মসজিদে আকসা কম্বো</span>
+                <!-- Product Thumbnail Image -->
+                <img src="your_product_thumbnail_image.jpg" alt="Product Thumbnail">
+                <span><b>কাবা, মসজিদে নববী এবং মসজিদে আকসা কম্বো</b></span>
             </div>
 
             <div class="quantity-controls">
@@ -831,9 +835,6 @@ body{ font-family: AdorshoLipi, arial, sans-serif !important; }
     </script>
 
 </body>
-
-
-
 
 
 
